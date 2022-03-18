@@ -32,7 +32,7 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-  objeto[metodo];
+  objeto[metodo]();
 
 }
 
@@ -84,7 +84,7 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-  if(objeto.key==propiedad){
+  if(objeto[propiedad]){
     return true;
   }
   else{
@@ -97,10 +97,7 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
-  if(usuario.password==password)
-  return true;
-  else 
-  return false;
+  return usuario['password']===password;
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
@@ -156,14 +153,10 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
-  producto={
-    calcularPrecioDescuento:function(){
-      this.precio;
-      this.porcentajeDeDescuento;
-      var descuento=this.precio*this.porcentajeDeDescuento;
-      return this.precio-descuento;
-    }
-  };
+  producto.calcularPrecioDescuento=function(){
+    return this.precio-(this.precio*this.porcentajeDeDescuento);
+  }
+ 
   return producto;
 }
 
