@@ -60,7 +60,7 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  return palabras.join('');
+  return palabras.join(' ');
 }
 
 
@@ -176,16 +176,18 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-  let temp = [];
-  for (let i = 0; i <array.length; i++){
-    if(array[i]==="Enero"|| array[i]==="Marzo"|| array[i]==="Noviembre"){
-      temp.push(array[i]);
-    } 
+  var nuevoArray = [];
+  for(let i= 0; i<array.length; i++) {
+    if(array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+      nuevoArray.push(array[i]);
+    }
   }
-  if(array.length<3){
-    return"No se encontraron los meses pedidos";
+  if(nuevoArray.length < 3) {
+    return "No se encontraron los meses pedidos";
   }
-  return temp;
+  else {
+      return nuevoArray;
+  }
 }
 
 
@@ -211,19 +213,21 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
-  let array = [];
-  let suma=numero;
-  for(let i=0;i<10;i++) {
-    suma=suma+2;
-    if(suma===i){
-      break;
-    }
-    else{
+  var array = [];
+  var suma = numero;
+  for(var i= 0; i<10; i++) {
+    suma = suma + 2;
+    if(suma === i) break;
+    else {
       array.push(suma);
     }
   }
-  if(i<10){return "Se interrumpió la ejecución";}
-  else {return array;}
+  if(i < 10) {
+    return 'Se interrumpió la ejecución';
+  }
+  else {
+      return array;
+  }
 }
 
 
@@ -242,8 +246,8 @@ function continueStatement(numero) {
       suma += 2;
       arreglo.push(suma);
     }
-    return arreglo;
   }
+  return arreglo;
 }
 
 
